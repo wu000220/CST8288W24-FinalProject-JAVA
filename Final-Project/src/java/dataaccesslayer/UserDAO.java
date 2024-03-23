@@ -8,6 +8,6 @@ package dataaccesslayer;
  *
  * @author adawe
  */
-public class DataSource {
+public class UserDAO {
     
 }
