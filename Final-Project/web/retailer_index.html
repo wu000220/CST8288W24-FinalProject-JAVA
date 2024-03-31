@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Waste Reduction Platform</title>
+<style>
+  /* Basic styling; add more styles as needed */
+  body { 
+    font-family: Arial, sans-serif; 
+  }
+
+  table { 
+    width: 100%; 
+    border-collapse: 
+    collapse; 
+  }
+
+  th, td { 
+    border: 1px 
+    solid #ddd; 
+    padding: 8px; 
+    text-align: left; 
+  }
+
+  th { 
+    background-color: #f2f2f2; 
+  }
+
+  .header { 
+    text-align: 
+    center;
+  }
+  .email { 
+    margin-bottom: 20px; 
+  }
+
+  .checkbox { 
+    width: 20px; 
+    height: 20px; 
+  }
+
+  .button-container { 
+    text-align: center; 
+    margin-top: 20px; 
+  }
+
+  .button { 
+    padding: 10px 25px; 
+    margin: 0 50px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    color: white;
+  }
+
+  #addButton { 
+    background-color: #4CAF50; 
+    padding: 10px 35px; 
+  }
+
+  #modifyButton { 
+    background-color: #008cba; 
+  }
+
+  #logoutButton { 
+    background-color: #f44336; 
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 10px 0;
+  }
+
+</style>
+
+<script>
+  window.onload = function() {
+      // Parse email from URL parameter and display
+      var urlParams = new URLSearchParams(window.location.search);
+      var email = urlParams.get('email');
+      document.querySelector('.email').textContent = "EMAIL : " + email;
+
+      // 添加事件监听器
+      document.getElementById("logoutButton").addEventListener("click", function() {
+          // 在点击 logout 按钮时执行页面跳转到 login.html
+          window.location.href = "login.html";
+      });
+  };
+</script>
+
+</head>
+<body>
+
+<div class="header">
+  <h1>Food Waste Reduction Platform!</h1>
+  <div>User Name:</div>
+  <div class="email">EMAIL : </div>
+</div>
+
+<table>
+  <tr>
+    <th>NO</th>
+    <th>ITEM</th>
+    <th>QUANTITY</th>
+    <th>Surplus</th>
+    <th>EXPIRE_DATE</th>
+    <th>PRICE</th>
+    <th>DISCOUNT_%</th>
+    <th>DONATION</th>
+    <th>SALE</th>
+    <th>Select</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>HAM</td>
+    <td>11</td>
+    <td>T/F</td>
+    <td>22/APL/2024</td>
+    <td>23.10</td>
+    <td>50</td>
+    <td>T/F</td>
+    <td>T/F</td>
+    <td><input type="checkbox" class="checkbox" checked></td>
+  </tr>
+  <!-- Additional rows will go here -->
+</table>
+
+<div class="button-container">
+  <button id="addButton" class="button">Add</button>
+  <button id="modifyButton" class="button">Modify</button>
+  <button id="logoutButton" class="button">Logout</button>
+</div>
+
+<div class="footer">
+  &copy; Copyright 2024. All Rights Reserved.
+</div>
+
+</body>
+</html>

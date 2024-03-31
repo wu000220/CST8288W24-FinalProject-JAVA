@@ -61,7 +61,7 @@
             color: white;
         }
         .footer {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100%;
             text-align: center;
@@ -73,11 +73,66 @@
             margin-top: 20px;
         }
     </style>
+
+<script>
+    function onSubscriptionChanged() {
+        var subscriptionYes = document.getElementById("subscription-yes");
+        var alertBox = document.getElementById("alert-box");
+        if (subscriptionYes.checked) {
+            alertBox.style.display = 'block'; // Show the alert box
+        } else {
+            alertBox.style.display = 'none'; // Hide the alert box
+        }
+    }
+
+    function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission
+        var typeRadio = document.querySelector('input[name="type"]:checked');
+        if (!typeRadio) {
+            alert('Please select a type');
+            return; // Stop here if no type is selected
+        }
+
+        var type = typeRadio.value;
+        var targetUrl = '';
+
+        switch(type) {
+        case 'retailer':
+            targetUrl = 'retailer_index.html?email=' + encodeURIComponent(document.getElementById("email").value);
+            break;
+        case 'charitable_organization':
+            targetUrl = 'organization_index.html?email=' + encodeURIComponent(document.getElementById("email").value);
+            break;
+        case 'customer':
+            targetUrl = 'customer_index.html?email=' + encodeURIComponent(document.getElementById("email").value);
+            break;
+        default:
+            alert('Please select a valid type');
+            return; // Stop here if the type is invalid
+    }
+
+    // Redirect to the target URL
+    window.location.href = targetUrl;
+}
+
+    window.onload = function() {
+        // Hide alert box on load
+        document.getElementById("alert-box").style.display = 'none';
+    };
+</script>
+
 </head>
 <body>
+   <!--Pop up alert-->
+    <div id="alert-box" style="display:none; position: fixed; right: 10px; bottom: 10px; width: 200px; padding: 10px; background: white; border: 1px solid black; border-radius: 5px;">
+        Surplus Item Alert !!!<br>
+        Please login your account to see the new items.
+    </div>
+
     <div class="container">
         <div class="title">Food Waste Reduction Platform!</div>
-        <form action="http://localhost:8080/Final-Project/FoodServlet-URL" method="post"> <!-- Update action with your server endpoint -->
+        <form action="http://localhost:8080/Final-Project/FoodServlet-URL" method="post" onsubmit="submitForm(event)">
+
            
             <label for="email">EMAIL :</label>
             <input type="email" id="email" name="email" required>
@@ -90,19 +145,19 @@
 
             <div class="checkbox-group">
                 <label>Subscription :</label>
-                <label><input type="checkbox" name="subscription" value="yes"> Yes</label>
-                <label><input type="checkbox" name="subscription" value="no"> No</label>
+                <label><input type="checkbox" id="subscription-yes" name="subscription" value="yes" onclick="onSubscriptionChanged()"> Yes</label>
+                <label><input type="checkbox" id="subscription-no" name="subscription" value="no" onclick="onSubscriptionChanged()"> No</label>
             </div>
 
             <div class="checkbox-group">
                 <label>TYPE</label>
-                <label><input type="checkbox" name="type" value="retailer"> Retailer</label>
-                <label><input type="checkbox" name="type" value="charitable_organization"> Charitable Organization</label>
-                <label><input type="checkbox" name="type" value="customer"> Customer</label>
+                <label><input type="radio" name="type" value="retailer"> Retailer</label>
+                <label><input type="radio" name="type" value="charitable_organization"> Charitable Organization</label>
+                <label><input type="radio" name="type" value="customer"> Customer</label>
             </div>
 <br><br>
             <input type="submit" value="Sign Up" class="button signup-button">
-            <input type="button" value="Cancel" class="button cancel-button" onclick="window.location='index.html';">
+            <input type="button" value="Cancel" class="button cancel-button" onclick="window.location='main.html';">
         </form>
     </div>
     <div class="footer">

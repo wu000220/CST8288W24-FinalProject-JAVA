@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Waste Reduction Platform</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif; 
+  }
+
+  .header { 
+    text-align: center;
+  }
+
+  .header > h1 { 
+    display: inline-block; 
+    margin: 0;
+  }
+
+  .subscribed { 
+    display: inline-block;
+    float: right; 
+    color: green; 
+    font-weight: bold; 
+    margin-top: 20px; /* adjust as needed */
+    margin-right: 10px; /* adjust as needed */
+  }
+
+  .email { 
+    margin-bottom: 20px; 
+  }
+
+  table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+
+  th, td { 
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    text-align: left; 
+  }
+
+  th { 
+    background-color: #f2f2f2; 
+  }
+
+  .input-quantity {
+    width: 100%; /* may need adjustment */
+    box-sizing: border-box; /* ensure padding doesn't affect width */
+    border: 1px solid #ddd; /* match table border */
+    padding: 5px; /* adjust as needed */
+  }
+
+  .button-container { 
+    text-align: center; 
+    margin-top: 20px; 
+  }
+
+  .button { 
+    padding: 10px 25px; 
+    margin: 0 10px;
+    cursor: pointer; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+</style>
+
+<script>
+  window.onload = function() {
+      // Parse email from URL parameter and display
+      var urlParams = new URLSearchParams(window.location.search);
+      var email = urlParams.get('email');
+      document.querySelector('.email').textContent = "EMAIL : " + email;
+
+      // 添加事件监听器
+      document.querySelector('.button-container .button.logout').addEventListener("click", function() {
+          // 在点击 logout 按钮时执行页面跳转到 login.html
+          window.location.href = "login.html";
+      });
+  };
+</script>
+
+</head>
+<body>
+
+  <div class="header">
+    <h1>Food Waste Reduction Platform!</h1>
+    <div>User Name:</div>
+    <div class="email">EMAIL : </div>
+  </div>
+  
+  <table>
+    <tr>
+      <th>NO</th>
+      <th>ITEM</th>
+      <th>QUANTITY</th>
+      <th>EXPIRE_DATE</th>
+      <th>PRICE</th>
+      <th>DISCOUNT_%</th>
+      <th>DISCOUNTED_PRICE</th>
+      <th>Input Quantity</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>HAM</td>
+      <td>11</td>
+      <td>22/APL/2024</td>
+      <td>23.10</td>
+      <td>50</td>
+      <td>11.55</td>
+      <td><input type="text" class="input-quantity" /></td>
+    </tr>
+    <!-- Additional rows will go here -->
+  </table>
+  
+  <div class="button-container">
+    <button class="button">Back</button>
+    <button class="button">Done</button>
+    <button class="button">Cancel</button>
+    <button class="button logout">Logout</button>
+  </div>
+
+<div class="footer">
+  &copy; Copyright 2024. All Rights Reserved.
+</div>
+
+</body>
+</html>
