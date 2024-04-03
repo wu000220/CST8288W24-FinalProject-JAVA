@@ -45,6 +45,11 @@
   }
 
   #backButton { 
+    background-color: #bbbbbd; 
+    padding: 10px 35px; 
+  }
+
+  #addButton { 
     background-color: #4CAF50; 
     padding: 10px 35px; 
   }
@@ -69,6 +74,92 @@
   }
 
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Redirect to 'retailer_index.html' when 'Back' button is clicked
+    document.getElementById("backButton").addEventListener("click", function() {
+        window.location.href = "retailer_index.html";
+    });
+
+    // Redirect to 'login.html' when 'Logout' button is clicked
+    document.getElementById("logoutButton").addEventListener("click", function() {
+        window.location.href = "login.html";
+    });
+
+    // Add a new editable row to the table when 'Add' button is clicked
+    document.getElementById("addButton").addEventListener("click", function() {
+        var table = document.querySelector("table");
+        var newRow = table.insertRow();
+        var newCell;
+
+        // Number the new row
+        newCell = newRow.insertCell(0);
+        newCell.textContent = table.rows.length - 1; // Assumes first row is a header and not numbered
+
+        // Create editable cells for item, quantity, expire date, and price
+        for (var i = 1; i <= 4; i++) {
+            newCell = newRow.insertCell(i);
+            newCell.contentEditable = "true"; // Makes the cell editable
+            newCell.innerHTML = ""; // Empty string for user to fill in
+        }
+
+        // Recalculate row numbers every time a new row is added
+        renumberRows();
+    });
+
+    // Event listener for 'Done' button to save data
+    document.getElementById("doneButton").addEventListener("click", function() {
+        var table = document.querySelector("table");
+        var dataToSave = [];
+
+        // Loop over each row in the table, skipping the header row
+        for (var i = 1; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var rowData = {
+                item: row.cells[1].textContent.trim(),
+                quantity: row.cells[2].textContent.trim(),
+                expireDate: row.cells[3].textContent.trim(),
+                price: row.cells[4].textContent.trim() // Assuming price is in the 5th cell
+            };
+            dataToSave.push(rowData);
+        }
+
+        // TODO: Replace '/your-api-endpoint' with your actual API endpoint
+        fetch('/your-api-endpoint', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+                // Add any other necessary headers, like authorization tokens
+            },
+            body: JSON.stringify(dataToSave)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            console.log('Data successfully saved:', data);
+            // Handle success
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            // Handle errors
+        });
+    });
+
+    // Function to renumber rows correctly after adding new ones
+    function renumberRows() {
+        var rows = document.querySelectorAll("table tr:not(:first-child)");
+        rows.forEach(function(row, index) {
+            row.cells[0].textContent = index + 1; // Adjust index to match human counting (start at 1)
+        });
+    }
+});
+</script>
+
 </head>
 <body>
 
@@ -84,27 +175,20 @@
       <th>QUANTITY</th>
       <th>EXPIRE_DATE</th>
       <th>PRICE</th>
-      <th>DISCOUNT_%</th>
-      <th>DONATION</th>
-      <th>SALE</th>
-      <th>Select</th>
     </tr>
     <tr>
-      <td>-</td>
-      <td>Chips</td>
-      <td>11</td>
-      <td>22/APL/2025</td>
-      <td>9.99</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
+      <td class="no"></td> <!-- The class 'no' will be used by JavaScript to insert the number -->
+      <td contenteditable="true">Chips</td>
+      <td contenteditable="true">11</td>
+      <td contenteditable="true">22/APL/2025</td>
+      <td contenteditable="true">9.99</td>
     </tr>
     <!-- More rows as needed -->
   </table>
 
 <div class="button-container">
     <button id="backButton" class="button">Back</button>
+    <button id="addButton" class="button">Add</button>
     <button id="doneButton" class="button">Done</button>
     <button id="logoutButton" class="button">Logout</button>
   </div>

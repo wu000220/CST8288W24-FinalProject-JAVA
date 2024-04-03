@@ -69,6 +69,25 @@
     background-color: #f44336; 
   }
 </style>
+
+<script>
+  // When the DOM is fully loaded, add click event to the 'Back' button
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("backButton").addEventListener("click", function() {
+      // Redirect to 'retailer_index.html' when 'Back' button is clicked
+      window.location.href = "retailer_index.html";
+    });
+  });
+
+   // When the DOM is fully loaded, add click event to the 'Logout' button
+   document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("logoutButton").addEventListener("click", function() {
+      // Redirect to 'login.html' when 'Logout' button is clicked
+      window.location.href = "login.html";
+    });
+  });
+</script>
+
 </head>
 <body>
 
