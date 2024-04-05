@@ -86,7 +86,7 @@
             <input type="password" id="password" name="password">
 
             <input type="submit" value="Login" class="button login-button">
-            <input type="button" value="Cancel" class="button cancel-button" onclick="window.location='main.html';"> <!-- Redirects to home page or previous page -->
+            <input type="button" value="Cancel" class="button cancel-button" onclick="window.history.back();"> <!-- Redirects to home page or previous page -->
         </form>
     </div>
     <div class="footer">

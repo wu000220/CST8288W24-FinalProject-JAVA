@@ -116,7 +116,7 @@
                 <br><br>
 
                 <input type="submit" value="Sign Up" class="button signup-button">
-                <input type="button" value="Cancel" class="button cancel-button" onclick="window.location = 'main.html';">
+                <input type="button" value="Cancel" class="button cancel-button" onclick="window.history.back();">
             </form>
         </div>
         <div class="footer">
