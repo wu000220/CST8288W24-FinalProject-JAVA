@@ -78,7 +78,7 @@
     <body>
         <div class="container">
         <div class="title">Food Waste Reduction Platform!</div>
-        <form action="http://localhost:8080/Final-Project/UserServlet-URL" method="post"> <!-- Update action with your server endpoint -->
+        <form action="../UserLoginServlet" method="post"> <!-- Update action with your server endpoint -->
             <label for="email">Email :</label>
             <input type="text" id="email" name="email">
 

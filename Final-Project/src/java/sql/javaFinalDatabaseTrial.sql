@@ -8,16 +8,6 @@
 -- CREATE DATABASE inventory;
 USE inventory;
 
-        -- CREATE TABLE Users (
-        --     userId int NOT NULL AUTO_INCREMENT,
-        --     userName varchar(100) NULL,
-        --     email varchar(100) NOT NULL,
-        --     userPassword varchar(100) NOT NULL,
-        --     userType varchar(100) NOT NULL,
-        --     subscription varchar(100) NULL,
-        --     PRIMARY KEY (userId)
-        -- );
-
 -- drop table if exists Users;
 -- 
 -- CREATE TABLE Users (
@@ -48,11 +38,6 @@ USE inventory;
 --     FOREIGN KEY (foodId) REFERENCES Food (foodId),
 -- 	PRIMARY KEY (userId, foodId) 
 -- );
-
-            -- INSERT INTO Users (userId, userName, email, userPassword, userType, subscription) 
-            -- VALUES (1, 'John Doe', 'john@example.com', 'password123', 'Retailer', 'Yes'),
-            --        (2, 'Jane Smith', 'jane@example.com', 'password456', 'Customer', 'Yes'),
-            --        (3, 'Jane Care', 'care@example.com', 'password789', 'Charitable Organization', 'Yes');
        
 -- INSERT INTO Food (foodId, foodName, quantity, expireDate, price, discount, donation, sale) 
 -- VALUES (1, 'Apple', '10', '2024-03-30', 1, 0, true, false),
@@ -60,9 +45,9 @@ USE inventory;
 --        (3, 'Orange', '20', '2024-04-01', 1, 0, true, false);
 
 -- INSERT INTO Users (userName, email, userPassword, userType, subscription) 
--- VALUES ('John Doe', 'john@example.com', 'password123', 'Retailer', 'Yes'),
---        ('Jane Smith', 'jane@example.com', 'password456', 'Customer', 'Yes'),
---        ('Jane Care', 'care@example.com', 'password789', 'Charitable Organization', 'Yes');
+-- VALUES ('John Doe', 'john@example.com', 'password123', 'retailer', 'yes'),
+--        ('Jane Smith', 'jane@example.com', 'password456', 'customer', 'yes'),
+--        ('Jane Care', 'care@example.com', 'password789', 'charitable_organization', 'yes');
        
 -- INSERT INTO UserFood (userId, foodId)
 -- VALUES (1, 1),

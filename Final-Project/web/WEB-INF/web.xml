@@ -9,9 +9,17 @@
         <servlet-name>controller.UserRegistrationServlet</servlet-name>
         <servlet-class>controller.UserRegistrationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controller.UserLoginServlet</servlet-name>
+        <servlet-class>controller.UserLoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controller.UserRegistrationServlet</servlet-name>
         <url-pattern>/UserRegistrationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controller.UserLoginServlet</servlet-name>
+        <url-pattern>/UserLoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

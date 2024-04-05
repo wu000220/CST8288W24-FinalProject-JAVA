@@ -50,6 +50,7 @@ public class UserRegistrationServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             addUser(request, response);
+            response.sendRedirect(request.getContextPath() + "/views/login.jsp");
         } catch (ValidationException ex) {
             Logger.getLogger(UserRegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

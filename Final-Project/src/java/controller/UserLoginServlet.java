@@ -8,6 +8,8 @@ import businesslayer.UserBusinessLogic;
 import businesslayer.ValidationException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +47,11 @@ public class UserLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        try {
+            verifyLogin(request, response);
+        } catch (ValidationException ex) {
+            Logger.getLogger(UserLoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -58,8 +64,19 @@ public class UserLoginServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void UserBusinessLogic(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ValidationException {
-//        UserBusinessLogic userBusinessLogic = new UserBusinessLogic();
-//        request.getParameter("email")
+    private void verifyLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ValidationException {
+        UserBusinessLogic userBusinessLogic = new UserBusinessLogic();
+        
+        // retrieve data from website.
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        // retrive data from database.
+        String storedPassword = userBusinessLogic.getUserPasswordByEmail(email);
+        
+        if(storedPassword != null && storedPassword.equals(password)){
+            response.sendRedirect(request.getContextPath() + "/views/customer_index.jsp");
+        }else {
+            response.sendRedirect(request.getContextPath() + "/views/registration.jsp");
+        }
     }
 }
