@@ -8,7 +8,7 @@ package model;
  * JavaBean for user object.
  * @author fwu
  */
-public abstract class User {
+public class User {
     
     private String userName;
     private String email;

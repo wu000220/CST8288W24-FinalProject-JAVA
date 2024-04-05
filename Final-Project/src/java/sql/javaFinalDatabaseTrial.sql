@@ -4,19 +4,19 @@
 * Author:  Wei Deng
 */
 
-DROP DATABASE IF EXISTS inventory;
-CREATE DATABASE inventory;
+-- DROP DATABASE IF EXISTS inventory;
+-- CREATE DATABASE inventory;
 USE inventory;
-
-CREATE TABLE Users (
-    userId int NOT NULL AUTO_INCREMENT,
-    userName varchar(100) NULL,
-    email varchar(100) NOT NULL,
-    userPassword varchar(100) NOT NULL,
-    userType varchar(100) NOT NULL,
-    subscription varchar(100) NULL,
-    PRIMARY KEY (userId)
-);
+-- 
+-- CREATE TABLE Users (
+--     userId int NOT NULL AUTO_INCREMENT,
+--     userName varchar(100) NULL,
+--     email varchar(100) NOT NULL,
+--     userPassword varchar(100) NOT NULL,
+--     userType varchar(100) NOT NULL,
+--     subscription varchar(100) NULL,
+--     PRIMARY KEY (userId)
+-- );
 
 -- CREATE TABLE Food (
 --     foodId int NOT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE Users (
 -- 	PRIMARY KEY (userId, foodId) 
 -- );
 
-INSERT INTO Users (userId, userName, email, userPassword, userType, subscription) 
-VALUES (1, 'John Doe', 'john@example.com', 'password123', 'Retailer', 'Yes'),
-       (2, 'Jane Smith', 'jane@example.com', 'password456', 'Customer', 'Yes'),
-       (3, 'Jane Care', 'care@example.com', 'password789', 'Charitable Organization', 'Yes');
+-- INSERT INTO Users (userId, userName, email, userPassword, userType, subscription) 
+-- VALUES (1, 'John Doe', 'john@example.com', 'password123', 'Retailer', 'Yes'),
+--        (2, 'Jane Smith', 'jane@example.com', 'password456', 'Customer', 'Yes'),
+--        (3, 'Jane Care', 'care@example.com', 'password789', 'Charitable Organization', 'Yes');
        
 -- INSERT INTO Food (foodId, foodName, quantity, expireDate, price, discount, donation, sale) 
 -- VALUES (1, 'Apple', '10', '2024-03-30', 1, 0, true, false),

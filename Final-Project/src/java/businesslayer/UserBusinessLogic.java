@@ -15,9 +15,11 @@ import model.User;
 public class UserBusinessLogic {
 
     private UserDAO userDAO = null;
+    private Validation validation = null;
 
     public UserBusinessLogic() {
         userDAO = new UserDAOImpl();
+        validation = new Validation();
     }
 
     private void cleanUser(User user) {
@@ -40,6 +42,7 @@ public class UserBusinessLogic {
     
     public void addUser(User user) throws ValidationException{
         cleanUser(user);
+//        validation.validatePasswordImpl(user.getPassword());
         userDAO.addUser(user);
     }
     
