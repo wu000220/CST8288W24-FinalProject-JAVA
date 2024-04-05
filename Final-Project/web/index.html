@@ -5,11 +5,57 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Food Waste Reduction Platform</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+            }
+            .container {
+                text-align: center;
+            }
+            .title {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .button {
+                display: block;
+                margin: 10px auto;
+                padding: 10px 20px;
+                background-color: #008cba;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                text-decoration: none;
+            }
+            .footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                font-size: 12px;
+                color: #666;
+            }
+        </style>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="container">
+            <div class="title">Food Waste Reduction Platform!</div>
+            <a href="views/login.jsp" class="button">Login</a>
+            <a href="views/registration.jsp" class="button">Registration</a>        
+        </div>
+        <div class="footer">
+            &copy; Copyright 2024. All Rights Reserved.
+        </div>
     </body>
 </html>

@@ -14,6 +14,5 @@ public interface UserDAO {
     
     public void addUser(User user);
     
-    // can be bonus
-    public void updateUser(User user);
+    public String getUserPasswordByEmail(String email);
 }

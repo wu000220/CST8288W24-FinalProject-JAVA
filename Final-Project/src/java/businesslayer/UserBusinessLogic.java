@@ -6,16 +6,44 @@ package businesslayer;
 
 import dataaccesslayer.UserDAO;
 import dataaccesslayer.UserDAOImpl;
+import model.User;
 
 /**
  *
  * @author fwu
  */
 public class UserBusinessLogic {
-    
+
     private UserDAO userDAO = null;
-    
-    public UserBusinessLogic(){
+
+    public UserBusinessLogic() {
         userDAO = new UserDAOImpl();
+    }
+
+    private void cleanUser(User user) {
+        if (user.getUserName() != null) {
+            user.setUserName(user.getUserName().trim());
+        }
+        if (user.getEmail() != null) {
+            user.setEmail(user.getEmail().trim());
+        }
+        if (user.getPassword() != null) {
+            user.setPassword(user.getPassword().trim());
+        }
+        if (user.getUserType() != null) {
+            user.setUserType(user.getUserType().trim());
+        }
+        if (user.getSubscription() != null) {
+            user.setSubscription(user.getSubscription().trim());
+        }
+    }
+    
+    public void addUser(User user) throws ValidationException{
+        cleanUser(user);
+        userDAO.addUser(user);
+    }
+    
+    public String getUserPasswordByEmail(String email){
+        return userDAO.getUserPasswordByEmail(email);
     }
 }

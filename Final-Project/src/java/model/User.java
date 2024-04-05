@@ -9,31 +9,12 @@ package model;
  * @author fwu
  */
 public abstract class User {
-
-    private String password;
+    
     private String userName;
     private String email;
+    private String password;
     private String userType;
-    private boolean subscription;
-    
-    public abstract boolean register();
-    public abstract boolean login();
-    public abstract boolean logout();
-
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    private String subscription;
 
     /**
      * @return the userName
@@ -64,6 +45,20 @@ public abstract class User {
     }
 
     /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
      * @return the userType
      */
     public String getUserType() {
@@ -80,7 +75,17 @@ public abstract class User {
     /**
      * @return the subscription
      */
-    public boolean isSubscription() {
+    public String getSubscription() {
         return subscription;
     }
+
+    /**
+     * @param subscription the subscription to set
+     */
+    public void setSubscription(String subscription) {
+        this.subscription = subscription;
+    }
+
+    
+    
 }
