@@ -13,5 +13,16 @@
     </head>
     <body>
         <h1>Hello ORGANIZATION!</h1>
+        
+        
+        
+        <script>
+            window.onload = function () {
+                var subscription = "${sessionScope.subscription}";
+                if (subscription === "yes") {
+                    alert("You subscibes to receive surplus food alerts");
+                }
+            };
+        </script>>
     </body>
 </html>

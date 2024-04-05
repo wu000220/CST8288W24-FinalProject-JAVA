@@ -53,4 +53,8 @@ public class UserBusinessLogic {
     public String getUserTypeByEmail(String email){
         return userDAO.getUserTypeByEmail(email);
     }
+    
+    public String getSubscriptionByEmail(String email){
+        return userDAO.getSubscriptionByEmail(email);
+    }
 }

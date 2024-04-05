@@ -17,4 +17,6 @@ public interface UserDAO {
     public String getUserPasswordByEmail(String email);
     
     public String getUserTypeByEmail(String email);
+    
+    public String getSubscriptionByEmail(String email);
 }

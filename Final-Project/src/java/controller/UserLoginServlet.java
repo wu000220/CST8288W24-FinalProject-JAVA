@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -66,24 +67,35 @@ public class UserLoginServlet extends HttpServlet {
 
     private void verifyLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ValidationException {
         UserBusinessLogic userBusinessLogic = new UserBusinessLogic();
-        
+
         // retrieve data from website.
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        
+
         // retrive data from database.
         String storedPassword = userBusinessLogic.getUserPasswordByEmail(email);
         String userType = userBusinessLogic.getUserTypeByEmail(email);
-        
-        if(storedPassword != null && storedPassword.equals(password)){
-            if(userType.equals("retailer")){
-                response.sendRedirect(request.getContextPath() + "/views/retailer_index.jsp");
-            }else if(userType.equals("customer")){
-                response.sendRedirect(request.getContextPath() + "/views/customer_index.jsp");
-            }else if(userType.equals("charitable_organization")){
-                response.sendRedirect(request.getContextPath() + "/views/organization_index.jsp");
-            }       
-        }else {
+        String subscription = userBusinessLogic.getSubscriptionByEmail(email);
+
+        // Store subscription status in session
+        HttpSession session = request.getSession();
+        session.setAttribute("subscription", subscription);
+
+        if (storedPassword != null && storedPassword.equals(password)) {
+            switch (userType) {
+                case "retailer":
+                    response.sendRedirect(request.getContextPath() + "/views/retailer_index.jsp");
+                    break;
+                case "customer":
+                    response.sendRedirect(request.getContextPath() + "/views/customer_index.jsp");
+                    break;
+                case "charitable_organization":
+                    response.sendRedirect(request.getContextPath() + "/views/organization_index.jsp");
+                    break;
+                default:
+                    break;
+            }
+        } else {
             response.sendRedirect(request.getContextPath() + "/views/registration.jsp");
         }
     }
