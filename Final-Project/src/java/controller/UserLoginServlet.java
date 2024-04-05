@@ -70,11 +70,19 @@ public class UserLoginServlet extends HttpServlet {
         // retrieve data from website.
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        
         // retrive data from database.
         String storedPassword = userBusinessLogic.getUserPasswordByEmail(email);
+        String userType = userBusinessLogic.getUserTypeByEmail(email);
         
         if(storedPassword != null && storedPassword.equals(password)){
-            response.sendRedirect(request.getContextPath() + "/views/customer_index.jsp");
+            if(userType.equals("retailer")){
+                response.sendRedirect(request.getContextPath() + "/views/retailer_index.jsp");
+            }else if(userType.equals("customer")){
+                response.sendRedirect(request.getContextPath() + "/views/customer_index.jsp");
+            }else if(userType.equals("charitable_organization")){
+                response.sendRedirect(request.getContextPath() + "/views/organization_index.jsp");
+            }       
         }else {
             response.sendRedirect(request.getContextPath() + "/views/registration.jsp");
         }

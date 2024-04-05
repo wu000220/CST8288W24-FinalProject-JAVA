@@ -15,4 +15,6 @@ public interface UserDAO {
     public void addUser(User user);
     
     public String getUserPasswordByEmail(String email);
+    
+    public String getUserTypeByEmail(String email);
 }

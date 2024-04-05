@@ -97,6 +97,51 @@ public class UserDAOImpl implements UserDAO {
         return password;
     }
 
+    @Override
+    public String getUserTypeByEmail(String email) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String type = null;
+        try {
+            DataSource ds = new DataSource();
+            con = ds.createConnection();
+            pstmt = con.prepareStatement(
+                        "SELECT userType FROM Users WHERE email = ?");
+            pstmt.setString(1, email);
+            rs = pstmt.executeQuery();
+            if (rs.next()) { // Check if there's a result
+                type = rs.getString("userType");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return type;
+    }
+    }
+
     
     
 }

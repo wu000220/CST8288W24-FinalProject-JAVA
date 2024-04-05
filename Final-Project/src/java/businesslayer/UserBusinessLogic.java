@@ -49,4 +49,8 @@ public class UserBusinessLogic {
     public String getUserPasswordByEmail(String email){
         return userDAO.getUserPasswordByEmail(email);
     }
+    
+    public String getUserTypeByEmail(String email){
+        return userDAO.getUserTypeByEmail(email);
+    }
 }
