@@ -34,7 +34,7 @@ public class UserRegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+            request.getRequestDispatcher("/views/registration.jsp").forward(request, response);
     }
 
     /**
@@ -67,17 +67,19 @@ public class UserRegistrationServlet extends HttpServlet {
 
     private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ValidationException {
         UserBusinessLogic userBusinessLogic = new UserBusinessLogic();
-        String userName = request.getParameter("userName");
+        String userName = request.getParameter("name");
         String email = request.getParameter("email");
-        String userPassword = request.getParameter("userPassword");
-        String userType = request.getParameter("userType");
+        String userPassword = request.getParameter("password");
+        String userType = request.getParameter("type");
         String subscription = request.getParameter("subscription");
+        
         User user = new User();
         user.setUserName(userName);
         user.setEmail(email);
         user.setPassword(userPassword);
         user.setUserType(userType);
         user.setSubscription(subscription);
+        
         userBusinessLogic.addUser(user);
     }
 }

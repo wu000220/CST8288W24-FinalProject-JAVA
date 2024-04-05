@@ -42,7 +42,7 @@ public class UserBusinessLogic {
     
     public void addUser(User user) throws ValidationException{
         cleanUser(user);
-//        validation.validatePasswordImpl(user.getPassword());
+        validation.validatePasswordImpl(user.getPassword());
         userDAO.addUser(user);
     }
     
