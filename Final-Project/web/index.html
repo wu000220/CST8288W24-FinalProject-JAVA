@@ -31,6 +31,55 @@
         th {
             background-color: #f2f2f2;
         }
+        
+        
+        form {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .form-input-group label {
+    margin-right: 10px;
+}
+
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="submit"] {
+        margin-bottom: 10px; /* Spacing between each row */
+    }
+
+    form input[type="submit"] {
+        grid-column: span 2; /* Submit button spans across both columns */
+    }
+
+    /* Align text to the right */
+    form {
+        text-align: right;
+    }
+
+    /* Make input fields take the remaining space */
+    form input[type="text"],
+    form input[type="number"] {
+        width: 100%;
+    }
+
+    .quantity-input {
+        margin-top: 25px; /* Adjust the value as needed */
+}
+
+    .expireDate-input {
+        margin-top: 25px;
+    }
+        
+    .price-input {
+        margin-top: 25px;
+    }
+
+
         .button { 
             padding: 10px 30px; 
             margin: 0 50px; 
@@ -61,7 +110,6 @@
 
 <script>
 document.getElementById("foodListButton").addEventListener("click", function() {
-  // å¨ç¹å» Add æé®æ¶æ§è¡é¡µé¢è·³è½¬å° retailer_add.html
   window.location.href = "retailer_modify.html";
 });
 </script>
@@ -74,45 +122,17 @@ document.getElementById("foodListButton").addEventListener("click", function() {
         <p>EMAIL: Metro_Kanata@gmail.com</p>
 
         <form method="POST" action="Food">
-<!--            <table>
-                <thead>
-                    <tr>
-                        <th>NO</th>
-                        <th>ITEM</th>
-                        <th>QUANTITY</th>
-                        <th>EXPIRE_DATE</th>
-                        <th>PRICE</th>
-                    </tr>
-                </thead>
-                <tbody>
-                     ç¤ºä¾è¡ 
-                    <tr>
-                        <td>1</td>
-                        <td><input type="text" name="foodName" /></td>
-                        <td><input type="number" name="quantity" /></td>
-                        <td><input type="text" name="expireDate" /></td>
-                        <td><input type="number" name="price" /></td>
-                    </tr>
-                     æ´å¤è¡å¯ä»¥æ ¹æ®éè¦æ·»å  
-                </tbody>
-            </table>
 
-            <div class="button-container">
-              <button id="foodListButton" class="button" type="button" onclick="window.location.href='retailer_foodList.html'">Food List</button>
-              <button id="addButton" class="button" type="submit">Submit</button>
-            </div>-->
-<!--            Food Id: 
-            <INPUT TYPE="TEXT" NAME="foodId"><br>-->
             Food Name: 
-            <INPUT TYPE="TEXT" NAME="foodName"><br><!-- comment -->
+            <INPUT TYPE="TEXT" NAME="foodName" style="margin-top: 10px;"><br>
             Quantity: 
-            <INPUT TYPE="NUMBER" NAME="quantity"><br>
+            <INPUT TYPE="NUMBER" NAME="quantity" class="quantity-input"><br>
             Expire Date: 
-            <INPUT TYPE="TEXT" NAME="expireDate"><br>
+            <INPUT TYPE="TEXT" NAME="expireDate" class="expireDate-input"><br>
             Price: 
-            <INPUT TYPE="NUMBER" NAME="price"><br>
+            <INPUT TYPE="NUMBER" NAME="price" class="price-input"><br>
             <INPUT TYPE="submit">
-<!--            <button id="foodListButton" class="button" type="button" onclick="window.location.href='retailer_foodList.jsp'">Food List</button>-->
+
         </form>
     </div>
 

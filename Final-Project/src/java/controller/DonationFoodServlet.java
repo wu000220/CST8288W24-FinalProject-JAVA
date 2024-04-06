@@ -70,12 +70,12 @@ public class DonationFoodServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-        
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {       
         deleteFood(request, response);
-        
+        doGet(request, response);
         response.sendRedirect("DonationFood");
+
+        
     }
 
     /**
@@ -98,7 +98,7 @@ public class DonationFoodServlet extends HttpServlet {
         log(ex.getMessage());
     }
 
-    response.sendRedirect(request.getContextPath() + "/DonationFood");
+//    response.sendRedirect(request.getContextPath() + "/DonationFood");
 }
 
 }

@@ -33,6 +33,51 @@
         th {
             background-color: #f2f2f2;
         }
+        form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* creates two columns with equal width */
+    gap: 10px;
+    justify-content: start; /* aligns grid to the start (left) of the container */
+    align-items: center;
+
+}
+
+/* Style for the labels */
+form label {
+    grid-column: 1; /* places label in the first column */
+    text-align: right; /* aligns text to the right */
+    margin-right: 10px; /* adds space between the label and the select box */
+}
+
+/* Style for the select elements */
+form select,
+form input[type="number"] {
+    grid-column: 2; /* places select in the second column */
+    justify-self: start; /* aligns select to the start (left) of the column */
+    width: fit-content; /* adjusts width to fit the content */
+}
+
+/* Additional adjustments to the submit button */
+form button {
+    grid-column: 1 / -1; /* makes the button span both columns */
+    justify-self: center; /* centers the button in the form */
+}
+
+/* Reset margin for all form elements */
+form select,
+form input[type="number"],
+form button,
+form label {
+    margin: 0; /* resets any default margin */
+}
+
+
+.container p:nth-of-type(3) {
+    margin-top: 50px; /* Adjust this value as needed for the spacing */
+}
+
+
+        
         .button { 
             padding: 10px 30px; 
             margin: 0 50px; 

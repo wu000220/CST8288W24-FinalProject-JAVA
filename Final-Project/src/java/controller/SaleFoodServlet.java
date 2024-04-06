@@ -57,7 +57,7 @@ public class SaleFoodServlet extends HttpServlet {
 
         request.setAttribute("foods", foods);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("views/retailer_foodList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("views/sale_foodList.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -71,9 +71,9 @@ public class SaleFoodServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        addFood(request, response);
-
+        deleteFood(request, response);
         doGet(request, response);
+        response.sendRedirect("SaleFood");
     }
 
     /**
@@ -86,26 +86,16 @@ public class SaleFoodServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-//    private void addFood(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        FoodBusinessLogic foodBusinessLogic = new FoodBusinessLogic();
-////        Integer foodId = Integer.parseInt(request.getParameter("foodId"));
-//        String foodName = request.getParameter("foodName");
-//        Integer quantity = Integer.parseInt(request.getParameter("quantity"));
-//        String expireDate = request.getParameter("expireDate");
-//        Double price = Double.parseDouble(request.getParameter("price"));
-////        Double discount = Double.parseDouble(request.getParameter("discount"));
-////        Boolean donation = Boolean.parseBoolean(request.getParameter("donation"));
-////        Boolean sale = Boolean.parseBoolean(request.getParameter("sale"));
-//        
-//        Food food = new Food();
-////        food.setFoodID(foodId);
-//        food.setFoodName(foodName);
-//        food.setQuantity(quantity);
-//        food.setExpireDate(expireDate);
-//        food.setPrice(price);
-////        food.setDiscount(discount);
-////        food.setDonation(donation);
-////        food.setSale(sale);
-//        foodBusinessLogic.addFood(food);
-//    }
+    private void deleteFood(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    FoodBusinessLogic foodBusinessLogic = new FoodBusinessLogic();
+    Integer foodId = Integer.parseInt(request.getParameter("foodId"));
+
+    try {
+        foodBusinessLogic.deleteFoodById(foodId);
+    } catch (SQLException ex) {
+        log(ex.getMessage());
+    }
+
+//    response.sendRedirect(request.getContextPath() + "/DonationFood");
+}
 }

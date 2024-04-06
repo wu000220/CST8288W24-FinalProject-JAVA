@@ -302,7 +302,7 @@ public class FoodDaoImpl {
             DataSource ds = new DataSource();
             con = ds.createConnection();
             pstmt = con.prepareStatement(
-                    "DELETE FROM Food where foodID = ?");
+                    "DELETE FROM Food where foodId = ?");
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
         } catch (SQLException e) {

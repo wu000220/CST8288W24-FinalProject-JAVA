@@ -138,7 +138,7 @@
     <td><%= food.getDonation()%></td>
     <td><%= food.getSale()%></td>
     <td>
-        <form method="POST" action="DonationFood">
+        <form method="POST" action="SaleFood">
             <!-- Replace the checkbox with an Update button -->
             <button type="submit" name="foodId" value="<%= food.getFoodID()%>" class="deletebutton">Delete</button>
         </form>
