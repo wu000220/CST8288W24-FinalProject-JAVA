@@ -4,10 +4,35 @@
  */
 package businesslayer;
 
+import dataaccesslayer.FoodDaoImpl;
+import java.sql.SQLException;
+import java.util.List;
+import model.Food;
+
 /**
  *
  * @author adawe
  */
 public class FoodBusinessLogic {
+    private FoodDaoImpl foodDao = null;
+
+    public FoodBusinessLogic() {
+        foodDao = new FoodDaoImpl();
+    }
+
+    public List<Food> getAllFood() throws SQLException {
+        return foodDao.getAllFood();
+    }
+
+    public Food getFoodById(Integer id) throws SQLException {
+        return foodDao.getFoodById(id);
+    }
+
+    public void addFood(Food food) {
+        foodDao.addFood(food);
+    }
     
+    public Food updateFood(Integer id, Double discount, Boolean donation, Boolean sale) throws SQLException{
+        return foodDao.updateFood(id, discount, donation, sale);
+    }
 }

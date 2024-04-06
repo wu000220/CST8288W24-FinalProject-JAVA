@@ -61,7 +61,7 @@
 
 <script>
 document.getElementById("foodListButton").addEventListener("click", function() {
-  // å¨ç¹å» Add æé®æ¶æ§è¡é¡µé¢è·³è½¬å° retailer_add.html
+  // 在点击 Add 按钮时执行页面跳转到 retailer_add.html
   window.location.href = "retailer_modify.html";
 });
 </script>
@@ -73,7 +73,7 @@ document.getElementById("foodListButton").addEventListener("click", function() {
         <p>User Name: </p>
         <p>EMAIL: Metro_Kanata@gmail.com</p>
 
-        <form method="POST" action="Food">
+        <form method="POST" action="Update">
 <!--            <table>
                 <thead>
                     <tr>
@@ -85,7 +85,7 @@ document.getElementById("foodListButton").addEventListener("click", function() {
                     </tr>
                 </thead>
                 <tbody>
-                     ç¤ºä¾è¡ 
+                     示例行 
                     <tr>
                         <td>1</td>
                         <td><input type="text" name="foodName" /></td>
@@ -93,7 +93,7 @@ document.getElementById("foodListButton").addEventListener("click", function() {
                         <td><input type="text" name="expireDate" /></td>
                         <td><input type="number" name="price" /></td>
                     </tr>
-                     æ´å¤è¡å¯ä»¥æ ¹æ®éè¦æ·»å  
+                     更多行可以根据需要添加 
                 </tbody>
             </table>
 
@@ -101,8 +101,6 @@ document.getElementById("foodListButton").addEventListener("click", function() {
               <button id="foodListButton" class="button" type="button" onclick="window.location.href='retailer_foodList.html'">Food List</button>
               <button id="addButton" class="button" type="submit">Submit</button>
             </div>-->
-<!--            Food Id: 
-            <INPUT TYPE="TEXT" NAME="foodId"><br>-->
             Food Name: 
             <INPUT TYPE="TEXT" NAME="foodName"><br><!-- comment -->
             Quantity: 
@@ -112,7 +110,6 @@ document.getElementById("foodListButton").addEventListener("click", function() {
             Price: 
             <INPUT TYPE="NUMBER" NAME="price"><br>
             <INPUT TYPE="submit">
-<!--            <button id="foodListButton" class="button" type="button" onclick="window.location.href='retailer_foodList.jsp'">Food List</button>-->
         </form>
     </div>
 
