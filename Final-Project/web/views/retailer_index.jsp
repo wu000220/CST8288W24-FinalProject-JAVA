@@ -73,7 +73,7 @@ document.getElementById("foodListButton").addEventListener("click", function() {
         <p>User Name: </p>
         <p>EMAIL: Metro_Kanata@gmail.com</p>
 
-        <form method="POST" action="Update">
+        <form method="POST" action="Food">
 <!--            <table>
                 <thead>
                     <tr>
@@ -101,6 +101,8 @@ document.getElementById("foodListButton").addEventListener("click", function() {
               <button id="foodListButton" class="button" type="button" onclick="window.location.href='retailer_foodList.html'">Food List</button>
               <button id="addButton" class="button" type="submit">Submit</button>
             </div>-->
+<!--            Food Id: 
+            <INPUT TYPE="TEXT" NAME="foodId"><br>-->
             Food Name: 
             <INPUT TYPE="TEXT" NAME="foodName"><br><!-- comment -->
             Quantity: 
@@ -110,6 +112,7 @@ document.getElementById("foodListButton").addEventListener("click", function() {
             Price: 
             <INPUT TYPE="NUMBER" NAME="price"><br>
             <INPUT TYPE="submit">
+<!--            <button id="foodListButton" class="button" type="button" onclick="window.location.href='retailer_foodList.jsp'">Food List</button>-->
         </form>
     </div>
 
