@@ -96,5 +96,4 @@ public class FoodServlet extends HttpServlet {
 //        food.setSale(sale);
         foodBusinessLogic.addFood(food);
     }
-
 }
