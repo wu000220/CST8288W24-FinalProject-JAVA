@@ -35,4 +35,20 @@ public class FoodBusinessLogic {
     public Food updateFood(Integer id, Double discount, Boolean donation, Boolean sale) throws SQLException{
         return foodDao.updateFood(id, discount, donation, sale);
     }
+    
+    public List<Food> getAllSurplusFood() throws SQLException {
+        return foodDao.getAllSurplusFood();
+    }
+    
+    public List<Food> getAllDonationFood() throws SQLException {
+        return foodDao.getAllDonationFood();
+    }
+    
+    public List<Food> getAllSaleFood() throws SQLException {
+        return foodDao.getAllSaleFood();
+    }
+    
+    public void deleteFoodById(Integer id) throws SQLException {
+         foodDao.deleteFoodById(id);
+    }
 }

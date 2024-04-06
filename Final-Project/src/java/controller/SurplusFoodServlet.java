@@ -6,11 +6,12 @@ package controller;
 
 import businesslayer.FoodBusinessLogic;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,13 +21,19 @@ import model.Food;
  *
  * @author adawe
  */
-//@WebServlet(name = "foodServlet", urlPatterns = {"/Food"})
-public class UpdateFoodServlet extends HttpServlet {
+//@WebServlet(name = "SurplusFoodServlet", urlPatterns = {"/SurplusFoodServlet"})
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 
-    String foodId = null;
-    Food food = null;
-    FoodBusinessLogic foodBusinessLogic = null;
-    Integer id= null;
+
+/**
+ *
+ * @author adawe
+ */
+//@WebServlet(name = "foodServlet", urlPatterns = {"/Food"})
+public class SurplusFoodServlet extends HttpServlet {
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -39,20 +46,18 @@ public class UpdateFoodServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        foodBusinessLogic = new FoodBusinessLogic();
-        foodId = request.getParameter("foodId");
-        
-        id = Integer.valueOf(foodId);
-        
+        FoodBusinessLogic foodBusinessLogic = new FoodBusinessLogic();
+        List<Food> foods = null;
+
         try {
-            food = foodBusinessLogic.getFoodById(id);
+            foods = foodBusinessLogic.getAllSurplusFood();
         } catch (SQLException ex) {
             log(ex.getMessage());
         }
-        
-        request.setAttribute("food", food);
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("views/retailer_update_food.jsp");
+
+        request.setAttribute("foods", foods);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("views/retailer_foodList.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -66,13 +71,9 @@ public class UpdateFoodServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            updateFood(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdateFoodServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        response.sendRedirect("Food");
+//        addFood(request, response);
+
+        doGet(request, response);
     }
 
     /**
@@ -85,38 +86,26 @@ public class UpdateFoodServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private Food updateFood(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-        FoodBusinessLogic foodBusinessLogic = new FoodBusinessLogic();
-//        Integer foodId = Integer.parseInt(request.getParameter("foodId"));
-
+//    private void addFood(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        FoodBusinessLogic foodBusinessLogic = new FoodBusinessLogic();
+////        Integer foodId = Integer.parseInt(request.getParameter("foodId"));
 //        String foodName = request.getParameter("foodName");
 //        Integer quantity = Integer.parseInt(request.getParameter("quantity"));
 //        String expireDate = request.getParameter("expireDate");
 //        Double price = Double.parseDouble(request.getParameter("price"));
-        foodBusinessLogic = new FoodBusinessLogic();
-        foodId = request.getParameter("foodId");
-        
-        id = Integer.valueOf(foodId);
-        try {
-            food = foodBusinessLogic.getFoodById(id);
-        } catch (SQLException ex) {
-            log(ex.getMessage());
-        }
-        Double discount = Double.parseDouble(request.getParameter("discount"));
-        Boolean donation = Boolean.parseBoolean(request.getParameter("donation"));
-        Boolean sale = Boolean.parseBoolean(request.getParameter("sale"));
-
+////        Double discount = Double.parseDouble(request.getParameter("discount"));
+////        Boolean donation = Boolean.parseBoolean(request.getParameter("donation"));
+////        Boolean sale = Boolean.parseBoolean(request.getParameter("sale"));
+//        
 //        Food food = new Food();
-//        food.setFoodID(foodId);
+////        food.setFoodID(foodId);
 //        food.setFoodName(foodName);
 //        food.setQuantity(quantity);
 //        food.setExpireDate(expireDate);
 //        food.setPrice(price);
-        food.setDiscount(discount);
-        food.setDonation(donation);
-        food.setSale(sale);
-        foodBusinessLogic.updateFood(Integer.parseInt(foodId), discount, donation, sale);
-        return food;
-    }
-    
+////        food.setDiscount(discount);
+////        food.setDonation(donation);
+////        food.setSale(sale);
+//        foodBusinessLogic.addFood(food);
+//    }
 }

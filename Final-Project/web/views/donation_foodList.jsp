@@ -61,14 +61,8 @@
   }
   .button-container {
     text-align: center;
-    display: flex; 
-    flex-direction: row; 
-    justify-content: center;
-    align-items: center; 
-    padding: 20px 0;
-    gap: 10px; 
-    }
-    
+    padding: 20px;
+  }
   button {
     padding: 10px 30px; 
     margin: 0 50px; 
@@ -78,42 +72,31 @@
     font-size: 16px; 
     color: white;
   }
-  
-  .ActionUpdatebutton{
-    background-color: #4CAF50; 
-    width: 100px;
-    padding: 10px 0
-    }
-
   .updatebutton {
     background-color: #4CAF50; 
-    width: 150px;
   }
   #backButton { 
     background-color: #008cba; 
-    width: 150px;
   }
 
 .surplusbutton {
-    background-color: #ffcc00; 
-    width: 150px;
-
-.donatebutton {
-    background-color: #008cba; 
-    width: 150px;
+    background-color: #ffcc00; /* Or any other color you prefer */
+    margin-top: 50px;
 }
 
-.salebutton{
-          background-color: #f44336;
-          width: 150px;
-        }
+.donationbutton {
+    color: #008cba; /* Or any other color you prefer */
+    margin-top: 50px;
+}
 
 
   #logoutButton { 
-    background-color: #9fa4a8; 
-    width: 150px;        
+    background-color: #f44336; 
+    
+    .button-container{
+        padding-top: 0;
+    }
   }
-  
 </style>
 </head>
     <body>
@@ -155,9 +138,9 @@
     <td><%= food.getDonation()%></td>
     <td><%= food.getSale()%></td>
     <td>
-        <form method="GET" action="UpdateFood">
+        <form method="GET" action="DonationFood">
             <!-- Replace the checkbox with an Update button -->
-            <button type="submit" name="foodId" value="<%= food.getFoodID()%>" class="ActionUpdatebutton">Update</button>
+            <button type="submit" name="deletefoodId" value="<%= food.getFoodID()%>" class="deletebutton">Delete</button>
         </form>
     </td>
   </tr>
@@ -166,25 +149,25 @@
   <!-- Additional rows as needed -->
 </table>
 
-<div class="button-container">   
+<!--<div class="button-container">   
   <form method="GET" action="SurplusFood">
-    <!-- Replace the checkbox with an Update button -->
+     Replace the checkbox with an Update button 
     <button type="submit" name="foodSurplus" class="surplusbutton">Surplus</button>
   </form>
-    
+    <br>  
   <form method="GET" action="DonationFood">
-    <!-- Replace the checkbox with an Update button -->
+     Replace the checkbox with an Update button 
     <button type="submit" name="foodDonate" class="donatebutton">Donation</button>
   </form>
-        
+       <br>  
   <form method="GET" action="SaleFood">
-    <!-- Replace the checkbox with an Update button -->
+     Replace the checkbox with an Update button 
     <button type="submit" name="foodSale" class="salebutton">Sale</button>
   </form>
-    
+    <br> 
   <button type="button" class="updatebutton" onclick="window.location.href='retailer_update_food.jsp'">Update</button>
   <button id="logoutButton" class="button">Logout</button>
-</div>
+</div>-->
   
 
 

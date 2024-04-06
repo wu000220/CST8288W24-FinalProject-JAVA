@@ -21,6 +21,34 @@
         <servlet-name>controller.UpdateFoodServlet</servlet-name>
         <url-pattern>/UpdateFood</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>controller.SurplusFoodServlet</servlet-name>
+        <servlet-class>controller.SurplusFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.SurplusFoodServlet</servlet-name>
+        <url-pattern>/SurplusFood</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>controller.DonationFoodServlet</servlet-name>
+        <servlet-class>controller.DonationFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.DonationFoodServlet</servlet-name>
+        <url-pattern>/DonationFood</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>controller.SaleFoodServlet</servlet-name>
+        <servlet-class>controller.SaleFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.SaleFoodServlet</servlet-name>
+        <url-pattern>/SaleFood</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

@@ -74,6 +74,171 @@ public class FoodDaoImpl {
         }
         return foods;
     }
+    
+    
+        public List<Food> getAllSurplusFood() throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        ArrayList<Food> foods = null;
+        try {
+            DataSource ds = new DataSource();
+            con = ds.createConnection();
+            pstmt = con.prepareStatement(
+                    "SELECT foodID, foodName, quantity, expireDate, price, discount, donation, sale FROM Food WHERE donation = true OR sale = true");
+            rs = pstmt.executeQuery();
+            foods = new ArrayList<Food>();
+            while (rs.next()) {
+                Food food = new Food();
+                food.setFoodID(new Integer(rs.getInt("foodID")));
+                food.setFoodName(rs.getString("foodName"));
+                food.setQuantity(rs.getInt("quantity"));
+                food.setExpireDate(rs.getString("expireDate"));
+                food.setPrice(rs.getDouble("price"));
+                food.setDiscount(rs.getDouble("discount"));
+                food.setDonation(rs.getBoolean("donation"));
+                food.setSale(rs.getBoolean("sale"));
+                foods.add(food);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return foods;
+    }
+        
+        
+     public List<Food> getAllDonationFood() throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        ArrayList<Food> foods = null;
+        try {
+            DataSource ds = new DataSource();
+            con = ds.createConnection();
+            pstmt = con.prepareStatement(
+                    "SELECT foodID, foodName, quantity, expireDate, price, discount, donation, sale FROM Food WHERE donation = true");
+            rs = pstmt.executeQuery();
+            foods = new ArrayList<Food>();
+            while (rs.next()) {
+                Food food = new Food();
+                food.setFoodID(new Integer(rs.getInt("foodID")));
+                food.setFoodName(rs.getString("foodName"));
+                food.setQuantity(rs.getInt("quantity"));
+                food.setExpireDate(rs.getString("expireDate"));
+                food.setPrice(rs.getDouble("price"));
+                food.setDiscount(rs.getDouble("discount"));
+                food.setDonation(rs.getBoolean("donation"));
+                food.setSale(rs.getBoolean("sale"));
+                foods.add(food);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return foods;
+    }
+     
+     
+     public List<Food> getAllSaleFood() throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        ArrayList<Food> foods = null;
+        try {
+            DataSource ds = new DataSource();
+            con = ds.createConnection();
+            pstmt = con.prepareStatement(
+                    "SELECT foodID, foodName, quantity, expireDate, price, discount, donation, sale FROM Food WHERE sale = true");
+            rs = pstmt.executeQuery();
+            foods = new ArrayList<Food>();
+            while (rs.next()) {
+                Food food = new Food();
+                food.setFoodID(new Integer(rs.getInt("foodID")));
+                food.setFoodName(rs.getString("foodName"));
+                food.setQuantity(rs.getInt("quantity"));
+                food.setExpireDate(rs.getString("expireDate"));
+                food.setPrice(rs.getDouble("price"));
+                food.setDiscount(rs.getDouble("discount"));
+                food.setDonation(rs.getBoolean("donation"));
+                food.setSale(rs.getBoolean("sale"));
+                foods.add(food);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        return foods;
+    }
 
     public Food getFoodById(Integer id) throws SQLException {
         Connection con = null;
@@ -126,6 +291,48 @@ public class FoodDaoImpl {
             }
         }
         return food;
+    }
+    
+    public void deleteFoodById(Integer id) throws SQLException {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Food food = null;
+        try {
+            DataSource ds = new DataSource();
+            con = ds.createConnection();
+            pstmt = con.prepareStatement(
+                    "DELETE FROM Food where foodID = ?");
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+//        return food;
     }
 
     public Food updateFood(Integer id, Double discount, Boolean donation, Boolean sale) throws SQLException {
