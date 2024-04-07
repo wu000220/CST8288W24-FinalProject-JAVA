@@ -4,10 +4,18 @@
  */
 package dataaccesslayer;
 
+import model.Food;
+
 /**
- *
- * @author adawe
+ * methods to manipulate food table.
+ * @author fwu
  */
-public class FoodDAO {
+public interface FoodDAO {
+    
+    public void addFood(Food food);
+    
+    public void updateQuantity(Food food);
+    
+    public void setExpiration(Food food);
     
 }

@@ -4,10 +4,18 @@
  */
 package businesslayer;
 
+import dataaccesslayer.FoodDAO;
+import dataaccesslayer.FoodDAOImpl;
+
 /**
  *
- * @author adawe
+ * @author fwu
  */
 public class FoodBusinessLogic {
     
-}
+    private FoodDAO foodDAO = null;
+    
+    public FoodBusinessLogic(){
+        foodDAO = new FoodDAOImpl();
+    }
+}  

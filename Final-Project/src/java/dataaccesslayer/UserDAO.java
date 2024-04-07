@@ -4,10 +4,19 @@
  */
 package dataaccesslayer;
 
+import model.User;
+
 /**
- *
- * @author adawe
+ * methods to manipulate user table.
+ * @author fwu
  */
-public class UserDAO {
+public interface UserDAO {
     
+    public void addUser(User user);
+    
+    public String getUserPasswordByEmail(String email);
+    
+    public String getUserTypeByEmail(String email);
+    
+    public String getSubscriptionByEmail(String email);
 }
