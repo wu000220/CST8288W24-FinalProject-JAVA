@@ -121,7 +121,7 @@ document.getElementById("foodListButton").addEventListener("click", function() {
         <p>User Name: </p>
         <p>EMAIL: Metro_Kanata@gmail.com</p>
 
-        <form method="POST" action="Food">
+        <form method="POST" action="../Food">
 
             Food Name: 
             <INPUT TYPE="TEXT" NAME="foodName" style="margin-top: 10px;"><br>
