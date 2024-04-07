@@ -6,6 +6,7 @@
 
 DROP DATABASE IF EXISTS inventory;
 CREATE DATABASE inventory;
+
 USE inventory;
 
 drop table if exists Users;
@@ -44,16 +45,17 @@ VALUES (1, 'Apple', '10', '2024-03-30', 1, 0, true, false),
        (2, 'Banana', '15', '2024-03-25', 2, 10, false, true),
        (3, 'Orange', '20', '2024-04-01', 1, 0, true, false);
 
+
 INSERT INTO Users (userName, email, userPassword, userType, subscription) 
 VALUES ('John Doe', 'john@example.com', 'password123', 'retailer', 'yes'),
        ('Jane Smith', 'jane@example.com', 'password456', 'customer', 'yes'),
        ('Jane Care', 'care@example.com', 'password789', 'charitable_organization', 'yes');
        
-INSERT INTO Food (foodId, foodName, quantity, expireDate, price, discount, donation, sale) 
-VALUES (1, 'Apple', '10', '2024-03-30', 1, 0, true, false),
-       (2, 'Banana', '15', '2024-03-25', 2, 10, false, true),
-       (3, 'Orange', '20', '2024-04-01', 1, 0, true, false);     
 
-select * from Users;
-select * from Food;
-select * from UserFood;
+
+
+-- INSERT INTO UserFood (userId, foodId)
+-- VALUES (1, 1),
+--        (2, 2),
+--        (3, 3);      
+

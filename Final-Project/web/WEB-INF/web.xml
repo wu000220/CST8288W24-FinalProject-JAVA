@@ -57,7 +57,8 @@
         <servlet-name>controller.UserRegistrationServlet</servlet-name>
         <url-pattern>/UserRegistrationServlet</url-pattern>
     </servlet-mapping>
-    
+
+
     <servlet>
         <servlet-name>controller.UserLoginServlet</servlet-name>
         <servlet-class>controller.UserLoginServlet</servlet-class>
@@ -66,9 +67,7 @@
         <servlet-name>controller.UserLoginServlet</servlet-name>
         <url-pattern>/UserLoginServlet</url-pattern>
     </servlet-mapping>
-    
-    
-    
+        
     <session-config>
         <session-timeout>
             30

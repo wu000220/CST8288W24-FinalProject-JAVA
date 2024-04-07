@@ -4,14 +4,16 @@
  */
 package businesslayer;
 
+
 import dataaccesslayer.FoodDaoImpl;
 import java.sql.SQLException;
 import java.util.List;
 import model.Food;
 
+
 /**
  *
- * @author adawe
+ * @author fwu
  */
 public class FoodBusinessLogic {
     private FoodDaoImpl foodDao = null;
@@ -48,7 +50,11 @@ public class FoodBusinessLogic {
         return foodDao.getAllSaleFood();
     }
     
+
     public void deleteFoodById(Integer id) throws SQLException {
          foodDao.deleteFoodById(id);
     }
-}
+
+
+}  
+

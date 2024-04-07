@@ -4,26 +4,35 @@
  */
 package controller;
 
+
 import businesslayer.FoodBusinessLogic;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.Food;
+
 
 /**
  *
  * @author adawe
  */
+
 //@WebServlet(name = "foodServlet", urlPatterns = {"/Food"})
 public class FoodServlet extends HttpServlet {
 
     /**
+
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -34,6 +43,7 @@ public class FoodServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         FoodBusinessLogic foodBusinessLogic = new FoodBusinessLogic();
         List<Food> foods = null;
 
@@ -47,6 +57,7 @@ public class FoodServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/retailer_foodList.jsp");
         dispatcher.forward(request, response);
+
     }
 
     /**
@@ -58,10 +69,12 @@ public class FoodServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         addFood(request, response);
 
         doGet(request, response);
+
     }
 
     /**
@@ -73,6 +86,7 @@ public class FoodServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
     private void addFood(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         FoodBusinessLogic foodBusinessLogic = new FoodBusinessLogic();
@@ -97,3 +111,4 @@ public class FoodServlet extends HttpServlet {
         foodBusinessLogic.addFood(food);
     }
 }
+

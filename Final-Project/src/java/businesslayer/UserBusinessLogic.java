@@ -4,9 +4,6 @@
  */
 package businesslayer;
 
-//import com.mysql.cj.xdevapi.Schema.Validation;
-//import businesslayer.Validation;
-
 import dataaccesslayer.UserDAO;
 import dataaccesslayer.UserDAOImpl;
 import model.User;

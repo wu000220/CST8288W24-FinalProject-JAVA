@@ -4,24 +4,26 @@
  */
 package dataaccesslayer;
 
-/**
- *
- * @author adawe
- */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * use singleton to connect database
+ * @author fwu
+ */
 public class DataSource {
-
+    
     private Connection connection = null;
     private String url = "jdbc:mysql://localhost:3306/inventory?useSSL=false&allowPublicKeyRetrieval=true";
+
     private String username = "root";
     private String password = "1234";
 
+
     public DataSource() {
     }
-
+    
     /*
  * Only use one connection for this application, prevent memory leaks.
      */
@@ -38,6 +40,4 @@ public class DataSource {
         }
         return connection;
     }
-    
-    
 }
