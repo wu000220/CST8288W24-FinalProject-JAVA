@@ -16,12 +16,12 @@ import model.Food;
  *
  * @author adawe
  */
-public class FoodDaoImpl {
+public class FoodDaoImpl implements FoodDao{
 
     public FoodDaoImpl() {
     }
 
-    public List<Food> getAllFood() throws SQLException {
+    public List<Food> getAllFood() {
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -47,7 +47,7 @@ public class FoodDaoImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+//            throw e;
 
         } finally {
             try {
@@ -76,7 +76,7 @@ public class FoodDaoImpl {
     }
     
     
-        public List<Food> getAllSurplusFood() throws SQLException {
+        public List<Food> getAllSurplusFood() {
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -102,7 +102,7 @@ public class FoodDaoImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+//            throw e;
 
         } finally {
             try {
@@ -131,7 +131,7 @@ public class FoodDaoImpl {
     }
         
         
-     public List<Food> getAllDonationFood() throws SQLException {
+     public List<Food> getAllDonationFood() {
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -157,7 +157,7 @@ public class FoodDaoImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+//            throw e;
 
         } finally {
             try {
@@ -186,7 +186,7 @@ public class FoodDaoImpl {
     }
      
      
-     public List<Food> getAllSaleFood() throws SQLException {
+     public List<Food> getAllSaleFood() {
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -212,7 +212,7 @@ public class FoodDaoImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+//            throw e;
 
         } finally {
             try {
@@ -240,7 +240,7 @@ public class FoodDaoImpl {
         return foods;
     }
 
-    public Food getFoodById(Integer id) throws SQLException {
+    public Food getFoodById(Integer id) {
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -265,7 +265,7 @@ public class FoodDaoImpl {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+//            throw e;
 
         } finally {
             try {
@@ -293,7 +293,7 @@ public class FoodDaoImpl {
         return food;
     }
     
-    public void deleteFoodById(Integer id) throws SQLException {
+    public void deleteFoodById(Integer id) {
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -307,7 +307,7 @@ public class FoodDaoImpl {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+//            throw e;
 
         } finally {
             try {
@@ -335,7 +335,7 @@ public class FoodDaoImpl {
 //        return food;
     }
 
-    public Food updateFood(Integer id, Double discount, Boolean donation, Boolean sale) throws SQLException {
+    public Food updateFood(Integer id, Double discount, Boolean donation, Boolean sale) {
         Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -352,7 +352,7 @@ public class FoodDaoImpl {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw e;
+//            throw e;
 
         } finally {
             try {
