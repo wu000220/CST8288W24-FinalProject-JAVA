@@ -6,21 +6,68 @@
         </welcome-file>
     </welcome-file-list>
     <servlet>
+        <servlet-name>controller.FoodServlet</servlet-name>
+        <servlet-class>controller.FoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.FoodServlet</servlet-name>
+        <url-pattern>/Food</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>controller.UpdateFoodServlet</servlet-name>
+        <servlet-class>controller.UpdateFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.UpdateFoodServlet</servlet-name>
+        <url-pattern>/UpdateFood</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>controller.SurplusFoodServlet</servlet-name>
+        <servlet-class>controller.SurplusFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.SurplusFoodServlet</servlet-name>
+        <url-pattern>/SurplusFood</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>controller.DonationFoodServlet</servlet-name>
+        <servlet-class>controller.DonationFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.DonationFoodServlet</servlet-name>
+        <url-pattern>/DonationFood</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>controller.SaleFoodServlet</servlet-name>
+        <servlet-class>controller.SaleFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller.SaleFoodServlet</servlet-name>
+        <url-pattern>/SaleFood</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>controller.UserRegistrationServlet</servlet-name>
         <servlet-class>controller.UserRegistrationServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>controller.UserLoginServlet</servlet-name>
-        <servlet-class>controller.UserLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>controller.UserRegistrationServlet</servlet-name>
         <url-pattern>/UserRegistrationServlet</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>controller.UserLoginServlet</servlet-name>
+        <servlet-class>controller.UserLoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controller.UserLoginServlet</servlet-name>
         <url-pattern>/UserLoginServlet</url-pattern>
     </servlet-mapping>
+        
     <session-config>
         <session-timeout>
             30

@@ -87,10 +87,12 @@ public class UserLoginServlet extends HttpServlet {
                     response.sendRedirect(request.getContextPath() + "/views/retailer_index.jsp");
                     break;
                 case "customer":
-                    response.sendRedirect(request.getContextPath() + "/views/customer_index.jsp");
+
+                    response.sendRedirect(request.getContextPath() + "/SaleFood");
                     break;
                 case "charitable_organization":
-                    response.sendRedirect(request.getContextPath() + "/views/organization_index.jsp");
+                    response.sendRedirect(request.getContextPath() + "/DonationFood");
+
                     break;
                 default:
                     break;

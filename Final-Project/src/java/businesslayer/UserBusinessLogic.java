@@ -8,6 +8,7 @@ import dataaccesslayer.UserDAO;
 import dataaccesslayer.UserDAOImpl;
 import model.User;
 
+
 /**
  *
  * @author fwu
@@ -58,3 +59,4 @@ public class UserBusinessLogic {
         return userDAO.getSubscriptionByEmail(email);
     }
 }
+
