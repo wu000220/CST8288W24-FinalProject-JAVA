@@ -139,6 +139,13 @@ document.getElementById("foodListButton").addEventListener("click", function() {
     <div class="footer">
         &copy; Copyright 2024. All Rights Reserved.
     </div>
-
+<script>
+            window.onload = function () {
+                var subscription = "${sessionScope.subscription}";
+                if (subscription === "yes") {
+                    alert("You subscibes to receive surplus food alerts");
+                }
+            };
+        </script>
 </body>
 </html>
