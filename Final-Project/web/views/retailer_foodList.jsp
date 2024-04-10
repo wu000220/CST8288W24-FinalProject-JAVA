@@ -97,6 +97,7 @@
 .surplusbutton {
     background-color: #ffcc00; 
     width: 150px;
+}
 
 .donatebutton {
     background-color: #008cba; 
