@@ -8,7 +8,7 @@ package businesslayer;
 //import businesslayer.Validation;
 
 import dataaccesslayer.UserDAO;
-import dataaccesslayer.UserDAOImpl;
+import dataaccesslayer.UserDaoImpl;
 import model.User;
 
 
@@ -22,7 +22,7 @@ public class UserBusinessLogic {
     private Validation validation = null;
 
     public UserBusinessLogic() {
-        userDAO = new UserDAOImpl();
+        userDAO = new UserDaoImpl();
         validation = new Validation();
     }
 

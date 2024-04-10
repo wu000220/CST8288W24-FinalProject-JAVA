@@ -15,7 +15,7 @@ import model.User;
  *
  * @author fwu
  */
-public class UserDAOImpl implements UserDAO {
+public class UserDaoImpl implements UserDAO {
 
     @Override
     public void addUser(User user) {
